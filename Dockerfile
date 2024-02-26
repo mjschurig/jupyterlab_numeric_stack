@@ -192,16 +192,7 @@ RUN mamba install -c conda-forge voila
 RUN pip install jupyterlab_latex
 RUN pip install jupyterlab-tabular-data-editor
 RUN pip install yfiles_jupyter_graphs
-#RUN pip install jupytercad
-
+RUN pip install jupyterlab-git
 
 USER $NB_USER
 WORKDIR /home/${NB_USER}
-
-
-
-#RUN mamba create -n cad
-#RUN source activate cad
-#RUN mamba install -c conda-forge jupytercad
-
-#
