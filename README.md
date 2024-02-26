@@ -53,7 +53,7 @@ Low-Code Python Data Apps
 ## [Ipygany](https://github.com/jupyter-widgets-contrib/ipygany)
 Jupyter Interactive Widgets library for 3-D mesh analysis
 
-## [Volia](https://github.com/voila-dashboards/voila)
+## [Voila](https://github.com/voila-dashboards/voila)
 Rendering of live Jupyter notebooks with interactive widgets.
 
 ## [yFiles](https://www.yworks.com/products/yfiles)
