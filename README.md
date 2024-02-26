@@ -25,7 +25,7 @@ including Numpy, Scipy, Pyvista etc.
 
 ## Matlab
 
-## [Deno](https://deno.com/] (JavaScript, TypeScript)
+## [Deno](https://deno.com/) (JavaScript, TypeScript)
 
 ## Latex editor/compiler
 
