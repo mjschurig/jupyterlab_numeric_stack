@@ -1,7 +1,16 @@
 # JupyterLab Numeric Stack
 Combine every (mainly numerical) solver possible into one jupyter lab
 
-Docker beginner, please feel free to contribute.
+Docker beginner, please feel free to contribute. (Would love to enable [xeus-cling](https://github.com/jupyter-xeus/xeus-cling)  or [C#](https://docs.servicestack.net/jupyter-notebooks-csharp#generate-c-jupyter-notebooks) but didn't manage to get it running)
+
+# Quickstart
+
+1. Install Docker
+2. Clone rep
+3. Open rep folder in terminal
+4. Type "docker build -t scientific-notebook -f Dockerfile ."
+5. Type "docker run -it --rm -p 8888:8888 scientific-notebook"
+6. Open localhost:8888 in your local browser (or open the link showing in your console "http://127.0.0.1:8888/lab?token=your-pass-key" by clicking while holding ctrl)
 
 # Featuring
 
