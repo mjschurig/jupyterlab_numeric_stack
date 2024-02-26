@@ -6,11 +6,11 @@ Docker beginner, please feel free to submit improvements
 # Featuring
 
 ## Julia
-(Julia)[https://julialang.org/]
+[Julia](https://julialang.org/)
 
 ## Numpy/Scipy/matplotlib etc. (Python, ipykernel)
 
-## Python (XPython)
+## Python ([XPython](https://github.com/jupyter-xeus/xeus-python))
 
 ## Fenicsx/Dolfinx (ipykernel)
 including Numpy, Scipy, Pyvista etc.
