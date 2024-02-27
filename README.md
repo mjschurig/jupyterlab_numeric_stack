@@ -29,10 +29,14 @@ including Numpy, Scipy, Pyvista etc.
 ## Matlab
 
 ## [Deno](https://deno.com/) (JavaScript, TypeScript)
+Using [Fresh](https://fresh.deno.dev/) with deno:
 
-## Latex editor/compiler
-
-## [CSV-Editor](https://jupyterlab-contrib.github.io/jupyterlab-spreadsheet-editor.html) (Tables)
+1. add "-p 8000:8000" to the docker run command
+2. open terminal in jupyterlab
+3. run "deno run -A -r https://fresh.deno.dev"
+4. run "cd fresh-project"
+5. run "deno task start"
+6. open localhost:8000 to view fresh app
 
 ## [TSV/CSV-Editor](https://github.com/jupytercalpoly/jupyterlab-tabular-data-editor) (Tables)
 
@@ -44,9 +48,6 @@ MyST extends Markdown for technical, scientific communication and publication.
 ## [ipywidgets](https://github.com/jupyter-widgets/ipywidgets/)
 Interactive Jupyter labs.
 
-## [Books](https://jupyterbook.org/)
-Build beautiful, publication-quality books and documents from computational content.
-
 ## [ipydatagrid](https://github.com/bloomberg/ipydatagrid)
 Fast Datagrid widget for the Jupyter Notebook and JupyterLab
 
@@ -56,14 +57,13 @@ Low-Code Python Data Apps
 ## [Ipygany](https://github.com/jupyter-widgets-contrib/ipygany)
 Jupyter Interactive Widgets library for 3-D mesh analysis
 
-## [Voila](https://github.com/voila-dashboards/voila)
-Rendering of live Jupyter notebooks with interactive widgets.
-
 ## [yFiles](https://www.yworks.com/products/yfiles)
 Interactive graph visualization.
 
 ## [Archive](https://github.com/jupyterlab-contrib/jupyter-archive) (ZIP)
 Download as archive.
+
+## VS Code server
 
 
 
