@@ -16,6 +16,9 @@ Docker beginner, please feel free to contribute. (Would love to enable [xeus-cli
 
 ## [Julia](https://julialang.org/)
 
+## [Pluto.jl](https://plutojl.org/)
+Simple, reactive programming environment for Julia
+
 ## Numpy/Scipy/matplotlib etc. (Python, ipykernel)
 
 ## Python ([XPython](https://github.com/jupyter-xeus/xeus-python))
