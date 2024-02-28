@@ -43,7 +43,7 @@ ARG MATLAB_RELEASE=r2023b
 ARG PYTHON_VERSION=3.10
 
 # Specify the list of products to install into MATLAB, 
-ARG MATLAB_PRODUCT_LIST="MATLAB Symbolic_Math_Toolbox 5G_Toolbox AUTOSAR_Blockset Aerospace_Blockset Aerospace_Toolbox Antenna_Toolbox Audio_Toolbox Automated_Driving_Toolbox Bioinformatics_Toolbox Bluetooth_Toolbox C2000_Microcontroller_Blockset Communications_Toolbox Computer_Vision_Toolbox Control_System_Toolbox Curve_Fitting_Toolbox DDS_Blockset DSP_HDL_Toolbox DSP_System_Toolbox Database_Toolbox Datafeed_Toolbox Deep_Learning_HDL_Toolbox Deep_Learning_Toolbox Econometrics_Toolbox Embedded_Coder Filter_Design_HDL_Coder Financial_Instruments_Toolbox Financial_Toolbox Fixed-Point_Designer Fuzzy_Logic_Toolbox GPU_Coder Global_Optimization_Toolbox HDL_Coder HDL_Verifier Image_Acquisition_Toolbox Image_Processing_Toolbox Industrial_Communication_Toolbox Instrument_Control_Toolbox LTE_Toolbox Lidar_Toolbox MATLAB MATLAB_Coder MATLAB_Compiler MATLAB_Compiler_SDK MATLAB_Parallel_Server MATLAB_Production_Server MATLAB_Report_Generator MATLAB_Test MATLAB_Web_App_Server Mapping_Toolbox Medical_Imaging_Toolbox Mixed-Signal_Blockset Model_Predictive_Control_Toolbox Motor_Control_Blockset Navigation_Toolbox Optimization_Toolbox Parallel_Computing_Toolbox Partial_Differential_Equation_Toolbox Phased_Array_System_Toolbox Polyspace_Bug_Finder Polyspace_Bug_Finder_Server Polyspace_Code_Prover Polyspace_Code_Prover_Server Polyspace_Test Powertrain_Blockset Predictive_Maintenance_Toolbox RF_Blockset RF_PCB_Toolbox RF_Toolbox ROS_Toolbox Radar_Toolbox Reinforcement_Learning_Toolbox Requirements_Toolbox Risk_Management_Toolbox Robotics_System_Toolbox Robust_Control_Toolbox Satellite_Communications_Toolbox Sensor_Fusion_and_Tracking_Toolbox SerDes_Toolbox Signal_Integrity_Toolbox Signal_Processing_Toolbox SimBiology SimEvents Simscape Simscape_Battery Simscape_Driveline Simscape_Electrical Simscape_Fluids Simscape_Multibody Simulink Simulink_3D_Animation Simulink_Check Simulink_Coder Simulink_Compiler Simulink_Control_Design Simulink_Coverage Simulink_Design_Optimization Simulink_Design_Verifier Simulink_Desktop_Real-Time Simulink_Fault_Analyzer Simulink_PLC_Coder Simulink_Real-Time Simulink_Report_Generator Simulink_Test SoC_Blockset Stateflow Statistics_and_Machine_Learning_Toolbox Symbolic_Math_Toolbox System_Composer System_Identification_Toolbox Text_Analytics_Toolbox UAV_Toolbox Vehicle_Dynamics_Blockset Vehicle_Network_Toolbox Vision_HDL_Toolbox WLAN_Toolbox Wavelet_Toolbox Wireless_HDL_Toolbox Wireless_Testbench"
+ARG MATLAB_PRODUCT_LIST="MATLAB Symbolic_Math_Toolbox 5G_Toolbox AUTOSAR_Blockset Aerospace_Blockset Aerospace_Toolbox Antenna_Toolbox Audio_Toolbox Automated_Driving_Toolbox Bioinformatics_Toolbox Bluetooth_Toolbox C2000_Microcontroller_Blockset Communications_Toolbox Computer_Vision_Toolbox Control_System_Toolbox Curve_Fitting_Toolbox DDS_Blockset DSP_HDL_Toolbox DSP_System_Toolbox Database_Toolbox Datafeed_Toolbox Deep_Learning_HDL_Toolbox Deep_Learning_Toolbox Econometrics_Toolbox Embedded_Coder Filter_Design_HDL_Coder Financial_Instruments_Toolbox Financial_Toolbox Fixed-Point_Designer Fuzzy_Logic_Toolbox GPU_Coder Global_Optimization_Toolbox HDL_Coder HDL_Verifier Image_Acquisition_Toolbox Image_Processing_Toolbox Industrial_Communication_Toolbox Instrument_Control_Toolbox LTE_Toolbox Lidar_Toolbox MATLAB_Coder MATLAB_Compiler MATLAB_Compiler_SDK MATLAB_Parallel_Server MATLAB_Production_Server MATLAB_Report_Generator MATLAB_Test MATLAB_Web_App_Server Mapping_Toolbox Medical_Imaging_Toolbox Mixed-Signal_Blockset Model_Predictive_Control_Toolbox Motor_Control_Blockset Navigation_Toolbox Optimization_Toolbox Parallel_Computing_Toolbox Partial_Differential_Equation_Toolbox Phased_Array_System_Toolbox Polyspace_Bug_Finder Polyspace_Bug_Finder_Server Polyspace_Code_Prover Polyspace_Code_Prover_Server Polyspace_Test Powertrain_Blockset Predictive_Maintenance_Toolbox RF_Blockset RF_PCB_Toolbox RF_Toolbox ROS_Toolbox Radar_Toolbox Reinforcement_Learning_Toolbox Requirements_Toolbox Risk_Management_Toolbox Robotics_System_Toolbox Robust_Control_Toolbox Satellite_Communications_Toolbox Sensor_Fusion_and_Tracking_Toolbox SerDes_Toolbox Signal_Integrity_Toolbox Signal_Processing_Toolbox SimBiology SimEvents Simscape Simscape_Battery Simscape_Driveline Simscape_Electrical Simscape_Fluids Simscape_Multibody Simulink Simulink_3D_Animation Simulink_Check Simulink_Coder Simulink_Compiler Simulink_Control_Design Simulink_Coverage Simulink_Design_Optimization Simulink_Design_Verifier Simulink_Desktop_Real-Time Simulink_Fault_Analyzer Simulink_PLC_Coder Simulink_Real-Time Simulink_Report_Generator Simulink_Test SoC_Blockset Stateflow Statistics_and_Machine_Learning_Toolbox System_Composer System_Identification_Toolbox Text_Analytics_Toolbox UAV_Toolbox Vehicle_Dynamics_Blockset Vehicle_Network_Toolbox Vision_HDL_Toolbox WLAN_Toolbox Wavelet_Toolbox Wireless_HDL_Toolbox Wireless_Testbench"
 # Optional Network License Server information
 ARG LICENSE_SERVER
 
@@ -128,69 +128,81 @@ RUN deno jupyter --unstable --install
 USER $NB_USER
 WORKDIR /home/${NB_USER}
 
+
+
+#Install variable inspector
+#RUN conda create -n variableinspector
+#RUN source activate variableinspector
+RUN conda config --add channels conda-forge
+RUN conda config --set channel_priority strict
+RUN conda install jupyterlab-variableinspector
+
+#Install myst
+#RUN conda create -n myst
+#RUN source activate myst
+#RUN conda config --add channels conda-forge
+#RUN conda config --set channel_priority strict
+RUN conda install jupyterlab-myst
+
+#RUN conda create -n spreadsheet
+#RUN source activate spreadsheet
+RUN conda install conda-forge::jupyterlab-spreadsheet-editor
+
+#RUN conda create -n book
+#RUN source activate book
+#RUN conda install -c conda-forge jupyter-book
+
+#RUN conda create -n plotly
+#RUN source activate plotly
+#RUN conda install "jupyterlab>=3" "ipywidgets>=7.6"
+#RUN conda install -c conda-forge -c plotly jupyter-dash
+#RUN jupyter labextension install "jupyterlab-dash"
+#RUN conda install pandas
+
+#RUN conda create -n ipywidgets
+#RUN source activate ipywidgets
+#RUN conda install -c conda-forge ipywidgets
+
+#RUN conda create -n archive
+#RUN source activate archive
+RUN conda install -c conda-forge jupyter-archive
+
+#RUN conda create -n datagrid
+#RUN source activate datagrid
+RUN conda install -c conda-forge ipydatagrid
+
+#RUN conda create -n ipygany
+#RUN source activate ipygany
+RUN conda install -c conda-forge ipygany
+RUN conda install -c conda-forge vtk
+RUN conda install -c conda-forge bqplot
+
+#RUN pip install jupyterlab-tabular-data-editor
+RUN pip install yfiles_jupyter_graphs
+#RUN pip install --upgrade jupyterlab jupyterlab-git
+USER root
+RUN curl -fsSL https://code-server.dev/install.sh | sh
+USER $NB_USER
+RUN pip install jupyter-server-proxy
+RUN pip install jupyter-vscode-proxy
+
 #Install draw.io
 RUN conda create -n drawio
 RUN source activate drawio
 RUN conda install -c conda-forge ipydrawio
 RUN conda install -yc conda-forge ipydrawio-export ipydrawio-mathjax
 
-#Install variable inspector
-RUN conda create -n variableinspector
-RUN source activate variableinspector
-RUN conda config --add channels conda-forge
-RUN conda config --set channel_priority strict
-RUN conda install jupyterlab-variableinspector
-
-#Install myst
-RUN conda create -n myst
-RUN source activate myst
-RUN conda config --add channels conda-forge
-RUN conda config --set channel_priority strict
-RUN conda install jupyterlab-myst
-
-RUN conda create -n spreadsheet
-RUN source activate spreadsheet
-RUN conda install conda-forge::jupyterlab-spreadsheet-editor
-
-RUN conda create -n book
-RUN source activate book
-RUN conda install -c conda-forge jupyter-book
-
-RUN conda create -n plotly
-RUN source activate plotly
-RUN conda install "jupyterlab>=3" "ipywidgets>=7.6"
-RUN conda install -c conda-forge -c plotly jupyter-dash
-RUN conda install pandas
-
-RUN conda create -n ipywidgets
-RUN source activate ipywidgets
-RUN conda install -c conda-forge ipywidgets
-
-RUN conda create -n archive
-RUN source activate archive
-RUN conda install -c conda-forge jupyter-archive
-
-RUN conda create -n datagrid
-RUN source activate datagrid
-RUN conda install -c conda-forge ipydatagrid
-
-RUN conda create -n ipygany
-RUN source activate ipygany
-RUN conda install -c conda-forge ipygany
-RUN conda install -c conda-forge vtk
-RUN conda install -c conda-forge bqplot
-
-RUN mamba create -n xeus-python
-RUN source activate xeus-python
+#Install xeus python
+#RUN mamba create -n xeus-python
+#RUN source activate xeus-python
 RUN mamba install xeus-python notebook -c conda-forge
 
-RUN mamba create -n voila
-RUN source activate voila
-RUN mamba install -c conda-forge voila
+#Install vscode
 
-RUN pip install jupyterlab-tabular-data-editor
-RUN pip install yfiles_jupyter_graphs
-RUN pip install --upgrade jupyterlab jupyterlab-git
+
+#RUN mamba create -n voila
+#RUN source activate voila
+#RUN mamba install -c conda-forge voila
 
 USER $NB_USER
 WORKDIR /home/${NB_USER}
