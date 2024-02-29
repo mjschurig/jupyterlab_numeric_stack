@@ -1,8 +1,6 @@
 # JupyterLab Numeric Stack
 Combine every (mainly numerical) solver possible into one jupyter lab
 
-Docker beginner, please feel free to contribute. (Would love to enable [xeus-cling](https://github.com/jupyter-xeus/xeus-cling)  or [C#](https://docs.servicestack.net/jupyter-notebooks-csharp#generate-c-jupyter-notebooks) but didn't manage to get it running)
-
 # Quickstart
 
 1. Install Docker
